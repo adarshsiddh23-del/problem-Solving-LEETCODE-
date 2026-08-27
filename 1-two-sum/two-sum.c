@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
+int* twoSums(int* nums, int numsSize, int target, int* returnSize) {
     *returnSize = 2;
 
     for (int i = 0; i < numsSize; i++) {
