@@ -1,15 +1,11 @@
 class Solution:
-    def subarraySum(self, nums: List[int], k: int) -> int:
-        count = 0
-        prefix = 0
-        freq = {0: 1}
+    def subarraySum(self, nums, k):
+        mp = {0: 1}
+        s = ans = 0
 
-        for num in nums:
-            prefix += num
+        for x in nums:
+            s += x
+            ans += mp.get(s - k, 0)
+            mp[s] = mp.get(s, 0) + 1
 
-            if prefix - k in freq:
-                count += freq[prefix - k]
-
-            freq[prefix] = freq.get(prefix, 0) + 1
-
-        return count
+        return ans
